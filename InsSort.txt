@@ -1,0 +1,36 @@
+//Raisa Meneses Insertion Sort
+#include <iostream>
+using namespace std;
+void selectionSort(int* arr, int size);
+int main()
+{
+	int arr[5] = { 0, 2, 5, 7, 9 };
+	selectionSort(arr, 5);
+	for (int i = 0; i < 5; i++)
+	{
+		cout << arr[i];
+	}
+
+}
+
+void selectionSort(int* arr, int size)
+{
+	int key = 0; //holds the value we are looking at
+	int hole = 0; //holds the position
+	//we have two arrays, one sorted (index of 0) and the other one(1 to size) unsorted
+	for (int i = 1; i < size; i++)
+	{
+		key = *(arr + i);
+		hole = i; 
+		//if the elements in the unsorted array that are greter than the key, 
+		//move the array to the right
+		while (hole > 0 && arr[hole - 1] > key)
+		{
+			arr[hole] = arr[hole - 1];
+			hole = hole - 1;
+		}
+		//after moving the array, we set the element at hole = to the key
+		arr[hole] = key;
+	}
+
+}
